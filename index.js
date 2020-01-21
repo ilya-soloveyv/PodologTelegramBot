@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const consola = require('consola')
 require('dotenv').config()
 const TelegramBot = require('node-telegram-bot-api')
 const bot = new TelegramBot(process.env.TELEGRAM_TOKEN, {
@@ -11,7 +12,7 @@ const bot = new TelegramBot(process.env.TELEGRAM_TOKEN, {
 
 bot.on('message', (msg) => {
   const chatId = msg.chat.id;
-  console.log(msg)
+  consola.info(msg)
   bot.sendMessage(chatId, 'Received your message');
 });
 
